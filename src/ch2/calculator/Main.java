@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//클래스 없이 하나, 클래스 있는거 하나
 public class Main {
-
-    //클래스 없이 하나, 클래스 있는거 하나
 
     public static void main(String[] args) {
         /*********************************
@@ -40,7 +39,6 @@ public class Main {
             System.out.println("exit 입력 시 종료됩니다.");
             System.out.println("===================================================");
             System.out.print("숫자 입력 : ");
-
 
             try {
                 inScType = scanner.nextInt();
@@ -76,9 +74,9 @@ public class Main {
                 continue;
             }
 
-            //스위치로 result에 결과값 저장
-            //기록에 쓰일 계산기호 저장
-
+            /*********************************
+             * 스위치로 result에 결과값 저장, 기록에 쓰일 계산기호 저장
+             ********************************/
             switch (inScType) {
                 case 1:
                     result = inNumFirst + inNumSecond;
