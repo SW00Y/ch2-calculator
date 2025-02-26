@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 //클래스 없이 하나, 클래스 있는거 하나
-public class Main {
+public class VersionOne {
 
     public static void main(String[] args) {
         /*********************************
@@ -15,48 +15,48 @@ public class Main {
         List<String> calHistory = new ArrayList<>();
         int count = 1;
 
-        while (!inContinueCal.equals("exit")) {
+        while (inContinueCal != "exit") {
             /*********************************
              * 초기화
              ********************************/
             Scanner scanner = new Scanner(System.in);
             int inNumFirst;
             int inNumSecond;
+            char inCalType;
             int result = 0;
             char chCalType = 0;
             int inScType = 0;
 
+
+
             System.out.println("===================================================");
             System.out.println("                    계   산   기                    ");
             System.out.println("");
-            System.out.println("        해당하는 숫자를 입력하여 계산을 시작하세요.       ");
+            System.out.println("        해당하는 메뉴를 입력해주세요.");
             System.out.println("===================================================");
             System.out.println("");
-            System.out.println("         (1) ＋    (2) －    (3) ×    (4) ÷         ");
+            System.out.println("         (1) 계산기  (2) 기록조회  (3) 종료");
             System.out.println("");
-            System.out.println("         (5) 기록  (6) 종료                          ");
-            System.out.println("");
-            System.out.println("exit 입력 시 종료됩니다.");
             System.out.println("===================================================");
-            System.out.print("숫자 입력 : ");
+            System.out.print("입력 : ");
 
             try {
                 inScType = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println("잘못된 입력입니다.");
-                System.out.println("오류내용 : " + e.getMessage());
+                System.out.println("오류내용 : " + e);
                 continue;
             }
 
             //바로 종료할때
-            if (inScType == 6) {
+            if (inScType == 3) {
                 System.out.println("계산을 종료합니다.");
                 inContinueCal = "exit";
                 break;
             }
 
             //기록 출력
-            if (inScType == 5) {
+            if (inScType == 2) {
                 System.out.println(calHistory);
                 continue;
             }
@@ -65,32 +65,34 @@ public class Main {
             try{
                 System.out.println("첫번째 숫자 입력");
                 inNumFirst = scanner.nextInt();
+                System.out.println("수학 기호 입력 ( +, -, *, / )");
+                inCalType = scanner.next().charAt(0);
                 System.out.println("두번째 숫자 입력");
                 inNumSecond = scanner.nextInt();
             }catch (Exception e)
             {
                 System.out.println("잘못된 입력입니다.");
-                System.out.println("오류내용 : " + e.getMessage());
+                System.out.println("오류내용 : " + e);
                 continue;
             }
 
             /*********************************
              * 스위치로 result에 결과값 저장, 기록에 쓰일 계산기호 저장
              ********************************/
-            switch (inScType) {
-                case 1:
+            switch (inCalType) {
+                case '+':
                     result = inNumFirst + inNumSecond;
                     chCalType = '＋';
                     break;
-                case 2:
+                case '-':
                     result = inNumFirst - inNumSecond;
                     chCalType = '－';
                     break;
-                case 3:
+                case '*':
                     result = inNumFirst * inNumSecond;
                     chCalType = '×';
                     break;
-                case 4:
+                case '/':
                     if (inNumSecond == 0) {
                         System.out.println("분모가 0입니다.");
                         continue;
