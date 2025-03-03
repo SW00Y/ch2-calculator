@@ -2,7 +2,7 @@ package ch2.calculator.classversion;
 
 import java.util.Scanner;
 
-public class main {
+public class Main {
 
 
     public static void main(String[] args) {
@@ -72,10 +72,7 @@ public class main {
                         System.out.println("수정을 종료하시겠습니까? ( exit 입력 시 종료 )");
                         inContinueDeleteHistory = scanner.nextLine();
                     }
-
                 }
-
-
                 continue;
             }
 
