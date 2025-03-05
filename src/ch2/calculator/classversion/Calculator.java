@@ -8,6 +8,9 @@ public class Calculator {
 
     public int calculate(int firstNum, int secondNum, char operator) {
         int result = 0;
+        System.out.println("first : " + firstNum);
+        System.out.println("second : " + secondNum);
+
 
         switch (operator) {
             case '+':
@@ -31,6 +34,8 @@ public class Calculator {
                 result = firstNum / secondNum;
                 break;
         }
+
+
 
         calHistory.add(firstNum + " " + operator + " " + secondNum + " = " + result);
 

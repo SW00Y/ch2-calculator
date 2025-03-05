@@ -17,7 +17,7 @@ public class Main {
 
         for(int i=0;i<input.length();i++){
             char inputChar = input.charAt(i);
-            if (Character.isDigit(inputChar) || inputChar == '.')
+            if (Character.isDigit(inputChar))
             {
                 stringBuilder.append(inputChar);
             }
@@ -29,12 +29,13 @@ public class Main {
             }
         }
         
-        //마지막에 숫자로 끝나는데 if에 안들어가서 넣어야함
+        //마지막 숫자가 안들어감 --> 마지막에 숫자로 끝나는데 if에 안들어가서 넣어야함
         if (stringBuilder.length() > 0) {
             numList.add(Integer.parseInt(stringBuilder.toString()));
         }
 
         int result = numList.get(0);
+
         for (int i = 0; i < operList.size(); i++) {
             char operator = operList.get(i);
             int nextNum = numList.get(i + 1);
@@ -57,9 +58,6 @@ public class Main {
         System.out.println(result);
         System.out.println(numList);
         System.out.println(operList);
-
-
-
 
 
     }
