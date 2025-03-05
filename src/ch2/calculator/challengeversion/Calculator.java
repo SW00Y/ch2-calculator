@@ -65,7 +65,7 @@ public class Calculator {
         }
     }
 
-    public double calculate(double num1, double num2, char operatorChar) {
+    public <T extends Number, X extends Number> double calculate(T num1, X num2, char operatorChar) {
         try{
             Operator operator = operator(operatorChar);
             double result = operator.doCalculator(num1, num2);
