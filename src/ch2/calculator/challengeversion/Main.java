@@ -95,16 +95,19 @@ public class Main {
             //조건 조회
             if (inChoiceNum == 3) {
                 while (!inContinueHistory.equals("exit")) {
-
-
-                    System.out.println("숫자를 입력해주세요. (입력한 숫자 이상의 계산 결과값 출력, exit 입력 시 종료)");
-                    Double searchNum = scanner.nextDouble();
-
-
-                    if (!inContinueHistory.equals("exit")) {
-                        System.out.println("조회를 종료하시겠습니까? ( exit 입력 시 종료 )");
-                        inContinueHistory = scanner.nextLine();
+                    System.out.println("숫자를 입력해주세요. ( 입력한 숫자 이상의 계산 결과값 출력 )");
+                    try{
+                        Double searchNum = scanner.nextDouble();
+                        scanner.nextLine();
+                        calculator.getConditionHistory(searchNum);
                     }
+                    catch (Exception e)
+                    {
+                        System.out.println("잘못된 입력입니다. : " + e);
+                    }
+
+                    System.out.println("조회를 종료하시겠습니까? (exit 입력 시 종료)");
+                    inContinueHistory = scanner.nextLine();
                 }
                 continue;
             }

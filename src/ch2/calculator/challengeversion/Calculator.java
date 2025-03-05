@@ -2,6 +2,7 @@ package ch2.calculator.challengeversion;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Calculator {
     private List<String> calHistory = new ArrayList<>();
@@ -75,8 +76,6 @@ public class Calculator {
             System.out.println("잘못된 입력입니다. : " + operatorChar);
             return Double.NaN;
         }
-
-
     }
 
     public void getHistory(){
@@ -85,9 +84,16 @@ public class Calculator {
         }
     }
 
-    public void getConditionHistory(){
+    public void getConditionHistory(double conditionNum){
 
+        List<String> calConditionHistory = calHistory.stream()
+                .filter(history -> Double.parseDouble(history.split("= ")[1]) > conditionNum)
+                .collect(Collectors.toList());
 
+        System.out.println(conditionNum + "보다 결과값이 높은 계산결과 목록");
+        for(int i=0;i<calConditionHistory.size();i++){
+            System.out.println(calConditionHistory.get(i));
+        }
     }
 
     public void setHistory(int idx) {
