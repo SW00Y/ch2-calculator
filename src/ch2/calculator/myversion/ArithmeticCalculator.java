@@ -2,10 +2,10 @@ package ch2.calculator.myversion;
 
 import java.util.Scanner;
 
-public class Main {
+public class ArithmeticCalculator {
     public static void main(String[] args) {
 
-        MyCalculator myCalculator = new MyCalculator();
+        Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         int inChoiceNum;
 
@@ -20,7 +20,8 @@ public class Main {
             System.out.println("");
             System.out.println("======================================================");
             System.out.print("입력 : ");
-
+            
+            //메뉴 선택
             try {
                 inChoiceNum = scanner.nextInt();
                 scanner.nextLine();
@@ -29,13 +30,14 @@ public class Main {
                 scanner.nextLine();
                 continue;
             }
-
+            
+            //계산
             if (inChoiceNum == 1) {
 
                 System.out.println("계산식을 입력하세요.");
                 String input = scanner.nextLine();
                 try {
-                    double result = myCalculator.Calculate(input);
+                    double result = calculator.Calculate(input);
                     System.out.println("결과값 : " + result);
                 } catch (Exception e) {
                     System.out.println(e);
@@ -46,9 +48,9 @@ public class Main {
             //기록 출력
             if (inChoiceNum == 2) {
 
-                myCalculator.getHistory();
+                calculator.getHistory();
 
-                System.out.println("기록을 삭제하시겠습니까?, Y(y) 입력 시 삭제 진행");
+                System.out.println("기록을 삭제하시겠습니까?, Y,y 입력 시 삭제 진행");
                 String inputAnswer = scanner.nextLine();
 
                 if(inputAnswer.toUpperCase().equals("Y")) {
@@ -56,23 +58,27 @@ public class Main {
                     try {
                         inChoiceNum = scanner.nextInt();
                         scanner.nextLine();
-                        myCalculator.setHistory(inChoiceNum);
+                        calculator.setHistory(inChoiceNum);
+                    }catch (NumberFormatException e) {
+                        System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
+                        continue;
                     }catch (Exception e)
                     {
-                        System.out.println("잘못된 입력입니다.");
+                        System.out.println("잘못된 입력입니다." + e);
                         continue;
                     }
 
                 }
             }
 
+            //조건조회
             if (inChoiceNum == 3) {
                 {
                     System.out.println("숫자를 입력해주세요. ( 입력한 숫자 이상의 계산 결과값 출력 )");
                     try {
                         Double searchNum = scanner.nextDouble();
                         scanner.nextLine();
-                        myCalculator.getConditionHistory(searchNum);
+                        calculator.getConditionHistory(searchNum);
                     } catch (Exception e) {
                         System.out.println("잘못된 입력입니다. : " + e);
                     }

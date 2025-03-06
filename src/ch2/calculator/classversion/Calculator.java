@@ -6,12 +6,13 @@ import java.util.List;
 public class Calculator {
     private List<String> calHistory = new ArrayList<>();
 
+    //숫자 입력
     public int calculate(int firstNum, int secondNum, char operator) {
         int result = 0;
         System.out.println("first : " + firstNum);
         System.out.println("second : " + secondNum);
 
-
+        //operator에 맞는 switch 문 결과 입력
         switch (operator) {
             case '+':
                 result = firstNum + secondNum;
@@ -36,19 +37,19 @@ public class Calculator {
         }
 
 
-
+        //History 저장
         calHistory.add(firstNum + " " + operator + " " + secondNum + " = " + result);
 
         return result;
 
     }
-
+    //History 불러오기
     public void getHistory(){
         for(int i=0;i<calHistory.size();i++){
             System.out.println(i + "번째 " + calHistory.get(i));
         }
     }
-
+    //History 삭제
     public void setHistory(int idx) {
         if (idx > calHistory.size()) {
             System.out.println("저장된 범위를 벗어났습니다.");

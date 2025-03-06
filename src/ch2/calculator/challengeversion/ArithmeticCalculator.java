@@ -2,7 +2,7 @@ package ch2.calculator.challengeversion;
 
 import java.util.Scanner;
 
-public class Main {
+public class ArithmeticCalculator {
 
 
     /*********************************
@@ -113,7 +113,7 @@ public class Main {
             }
 
             /*********************************
-             * 숫자 입력 받음
+             * 숫자 입력
              ********************************/
             try {
                 System.out.println("첫번째 숫자 입력");
