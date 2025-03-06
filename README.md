@@ -31,8 +31,6 @@ Lv. 3  요구조건을 구현한 계산기
   
 ## 주요 구현 ( Lv. Q )
 
-![x drawio](https://github.com/user-attachments/assets/9d032ef3-21a7-45fc-9365-a05caf607028)
-
 - **Lv. 3의 요구사항 부합**  
 
 - **`"1+5*3+5"` 와 같이 계산식 문자열 입력 대응**  
