@@ -1,4 +1,4 @@
-package ch2.calculator.challengeversion;
+package ch2.calculator.lv3;
 
 public enum Operator {
     //열거형 선언- 람다

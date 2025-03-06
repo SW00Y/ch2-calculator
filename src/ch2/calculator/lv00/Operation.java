@@ -1,4 +1,4 @@
-package ch2.calculator.myversion;
+package ch2.calculator.lv00;
 
 @FunctionalInterface    //함수형 인터페이스선언
 public interface Operation {

@@ -1,4 +1,4 @@
-package ch2.calculator.classversion;
+package ch2.calculator.lv2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,6 @@ public class Calculator {
     //숫자 입력
     public int calculate(int firstNum, int secondNum, char operator) {
         int result = 0;
-        System.out.println("first : " + firstNum);
-        System.out.println("second : " + secondNum);
 
         //operator에 맞는 switch 문 결과 입력
         switch (operator) {

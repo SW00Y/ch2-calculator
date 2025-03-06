@@ -1,20 +1,37 @@
-package ch2.calculator.noclassversion;
+package ch2.calculator.lv2;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-//클래스 없이 하나, 클래스 있는거 하나
 public class App {
 
+
+    /*********************************
+     * MEMO
+     ********************************/
+    /*
+
+    enum
+
+    실수, 즉 double 타입의 값을 전달 받아도 연산이 수행하도록 만들기 - 제네릭
+        Calculator 클래스 public int calculate(int firstNum, int secondNum, char operator) 제네릭 수정 - 완
+
+    저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력 - 람다 & 스트림
+        Stream filter 이용 기록에서 특정 값 a 입력 -> filter( result > a )
+
+     */
+
+
     public static void main(String[] args) {
+        /*********************************
+         * Calculator 클래스 선언
+         ********************************/
+        Calculator calculator = new Calculator();
+
         /*********************************
          * while 외부에서 초기화 해야하는 변수
          ********************************/
         Scanner scanner = new Scanner(System.in);
         String inContinueCal = "";
-        List<String> calHistory = new ArrayList<>();
-        int count = 1;
 
         while (!inContinueCal.equals("exit")) {
             /*********************************
@@ -23,9 +40,8 @@ public class App {
             int inNumFirst;
             int inNumSecond;
             char inCalOperator;
-            int result = 0;
             int inChoiceNum = 0;
-
+            String inContinueDeleteHistory = "";
 
 
             System.out.println("===================================================");
@@ -43,8 +59,8 @@ public class App {
                 inChoiceNum = scanner.nextInt();
                 scanner.nextLine();
             } catch (Exception e) {
-                System.out.println("잘못된 입력입니다.");
-                System.out.println("오류내용 : " + e);
+                System.out.println("잘못된 입력입니다. 오류내용 : " + e);
+                scanner.nextLine();
                 continue;
             }
 
@@ -56,12 +72,30 @@ public class App {
 
             //기록 출력
             if (inChoiceNum == 2) {
-                System.out.println(calHistory);
+                while (!inContinueDeleteHistory.equals("exit")) {
+                    calculator.getHistory();
+
+                    System.out.println("기록을 삭제하시겠습니까? ( exit 입력 시 종료 )");
+                    inContinueDeleteHistory = scanner.nextLine();
+
+                    if (!inContinueDeleteHistory.equals("exit")) {
+                        System.out.println("몇번째 기록을 삭제하시겠습니까?");
+                        inChoiceNum = scanner.nextInt();
+                        scanner.nextLine();
+                        calculator.setHistory(inChoiceNum);
+                        calculator.getHistory();
+
+                        System.out.println("삭제를 종료하시겠습니까? ( exit 입력 시 종료 )");
+                        inContinueDeleteHistory = scanner.nextLine();
+                    }
+                }
                 continue;
             }
 
-            //숫자입력
-            try{
+            /*********************************
+             * 숫자 입력
+             ********************************/
+            try {
                 System.out.println("첫번째 숫자 입력");
                 inNumFirst = scanner.nextInt();
                 scanner.nextLine();
@@ -71,46 +105,20 @@ public class App {
                 System.out.println("두번째 숫자 입력");
                 inNumSecond = scanner.nextInt();
                 scanner.nextLine();
-            }catch (Exception e)
-            {
-                System.out.println("잘못된 입력입니다.");
-                System.out.println("오류내용 : " + e);
+            } catch (Exception e) {
+                System.out.println("잘못된 입력입니다. 오류내용 : " + e);
                 continue;
             }
 
             /*********************************
              * 스위치로 result에 결과값 저장, 기록에 쓰일 계산기호 저장
              ********************************/
-            switch (inCalOperator) {
-                case '+':
-                    result = inNumFirst + inNumSecond;
-                    break;
-                case '-':
-                    result = inNumFirst - inNumSecond;
-                    break;
-                case '*':
-                    result = inNumFirst * inNumSecond;
-                    break;
-                case '/':
-                    if (inNumSecond == 0) {
-                        System.out.println("분모가 0입니다.");
-                        continue;
-                    }
-                default:
-                    System.out.println("잘못된 연산자입니다.");
-                    result = inNumFirst / inNumSecond;
-                    break;
-            }
-            System.out.println(count + "번째 계산 : " + inNumFirst + " " + inCalOperator + " " + inNumSecond + " = " + result);
-            calHistory.add(count + "번째 계산 : " + inNumFirst + " " + inCalOperator + " " + inNumSecond + " = " + result);
-            count += 1;
+
+            System.out.println(calculator.calculate(inNumFirst, inNumSecond, inCalOperator));
 
 
             System.out.println("계속 사용하시겠습니까? (exit 입력 시 종료)");
             inContinueCal = scanner.nextLine();
-            if(inContinueCal.equals("exit")){
-                break;
-            }
         }
 
 

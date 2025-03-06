@@ -1,4 +1,4 @@
-package ch2.calculator.myversion;
+package ch2.calculator.lv00;
 
 import java.util.Arrays;
 
