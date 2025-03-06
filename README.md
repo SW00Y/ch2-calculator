@@ -28,7 +28,36 @@ Lv. 3  요구조건을 구현한 계산기
 - Lv. 3의 요구조건에 부합 ✅(Generic 제외)
 - `"1+5*3+5"` 와 같이 계산식 문자열 입력 대응 ✅
 - 연산자 우선순위 적용 ✅
-  
+
+
+## 개발 환경
+>**IDE : IntelliJ IDEA Community Edition**  
+>**JDK : OpenJDK 17**  
+>**버전 관리 : Git (GitHub 사용)**
+
+## 디렉토리 구조
+
+**ch2-calculator**
+- src
+    - ch2
+        - calculator
+            - **lv1**
+                - App
+            - **lv2**
+                - App
+                - Calculator
+            - **lv3**
+                - ArithmeticCalculator
+                - Calculator
+                - Operation
+                - Operator
+            - **lvQ**
+                - backup
+                - ArithmeticCalculator
+                - Calculator
+                - Operation
+                - Operator
+
 ## 주요 구현 ( Lv. Q )
 
 ![image](https://private-user-images.githubusercontent.com/108026905/419791319-1b474e81-acf2-441b-b344-0914b14decb9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEyNDU3NDksIm5iZiI6MTc0MTI0NTQ0OSwicGF0aCI6Ii8xMDgwMjY5MDUvNDE5NzkxMzE5LTFiNDc0ZTgxLWFjZjItNDQxYi1iMzQ0LTA5MTRiMTRkZWNiOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMzA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDMwNlQwNzE3MjlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03ZDM2MzY0YjQ1YzA2NjYwNmYwMDhhNGM5OTlhN2ZlNWQ0ZDg4N2U1MmRkMDVhYjc3MzdjMThlMDM0OTkzYjEzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Io6gFJaTZEvTAcRIM8G3f3Dgyj3IruHh1EYG11QsiBI)
